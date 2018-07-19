@@ -1,21 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+    <title>Tables Page</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
 </head>
+
 <body>
-    <div class="container is-fluid">
-        <h1 class="is-size-3"><i class="fab fa-gripfire"></i>Hot Restaurant</h1>
-        <hr>
-        <h2>Book your seat before they're gone!</h2>
-        <br>
-        <button>View Tables</button> <button>Make Reservation</button>
+
+    <div class="container">
+
+        <div class="jumbotron">
+            <h1 class="text-center">
+                <span class="glyphicon glyphicon-fire"></span> Hot Restaurant</h1>
+            <hr>
+            <h2 class="text-center">We only have 5 tables! Book your seat before they all are gone!</h2>
+            <br>
+
+            <div class="text-center">
+                <a href="/tables">
+                    <button type="button" class="btn btn-lg btn-primary">
+                        <span class="glyphicon glyphicon-list-alt"></span> View Tables</button>
+                </a>
+                <a href="/reserve">
+                    <button type="button" class="btn btn-lg btn-danger">
+                        <span class="glyphicon glyphicon-credit-card"></span> Make Reservation</button>
+                </a>
+            </div>
+
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <p>
+                    <a href="/api/tables">API Table Link</a> |
+                    <a href="/api/waitlist">API Wait List</a> |
+                    <a href="https://github.com/afhaque/HotRestaurant">GitHub Repo</a>
+                </p>
+            </div>
+        </footer>
+
     </div>
+
+
 </body>
+
 </html>
