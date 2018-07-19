@@ -74,13 +74,13 @@ app.post("/api/waitlist", function (req, res) {
 app.post("/api/tables", function (req, res) {
     // req.body hosts is equal to the JSON post sent from the user
     // This works because of our body-parser middleware
-    var newReservation = req.body;
+    var postReservation = req.body;
 
-    console.log(newReservation);
+    console.log(postReservation);
 
-    waitlist.push(newReservation);
+    reservations.push(postReservation);
 
-    res.json(newReservation);
+    res.json(postReservation);
 });
 
 // Starts the server to begin listening
