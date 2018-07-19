@@ -124,12 +124,12 @@
 
                 // If a table is available... tell user they are booked.
                 if (data) {
-                    alert("Yay! You are officially booked!");
+                    alert(data.message);
                 }
 
                 // If a table is available... tell user they on the waiting list.
                 else {
-                    alert("Sorry you are on the wait list");
+                    alert(data.message);
                 }
 
                 // Clear the form when submitting

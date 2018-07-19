@@ -59,29 +59,27 @@ app.get("/api/waitlist/:newReservation", function (req, res) {
     return res.json(false);
 });
 
-app.post("/api/waitlist", function (req, res) {
-    // req.body hosts is equal to the JSON post sent from the user
-    // This works because of our body-parser middleware
-    var newWaitlist = req.body;
+    app.post("/api/tables", function (req, res) {
+        // req.body hosts is equal to the JSON post sent from the user
+        // This works because of our body-parser middleware
+        var postReservation = req.body;
 
-    console.log(newWaitlist);
+        console.log(postReservation);
 
-    waitlist.push(newWaitlist);
-
-    res.json(newWaitlist);
-});
-
-app.post("/api/tables", function (req, res) {
-    // req.body hosts is equal to the JSON post sent from the user
-    // This works because of our body-parser middleware
-    var postReservation = req.body;
-
-    console.log(postReservation);
-
-    reservations.push(postReservation);
-
-    res.json(postReservation);
-});
+        if(reservations.length < 5) { 
+        reservations.push(postReservation);
+        res.json({
+            message: "Your Table is Ready!",
+            data: postReservation
+        });
+        }else{
+        waitlist.push(postReservation);
+        res.json({
+            message: "Sorry for the wait, there are " + waitlist.length + " people ahead of you.",
+            data: postReservation
+        });
+        }   
+    });
 
 // Starts the server to begin listening
 // =============================================================
