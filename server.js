@@ -17,6 +17,7 @@ app.use(bodyParser.json());
 
 //Store Reservation Data here
 // ====================================
+var reservations = [];
 var waitlist = [];
 // ====================================
 
@@ -37,6 +38,10 @@ app.get("/view", function (req, res) {
 });
 
 app.get("/api/waitlist", function (req, res) {
+    return res.json(waitlist);
+});
+
+app.get("/api/tables", function (req, res) {
     return res.json(reservations);
 });
 
@@ -54,6 +59,29 @@ app.get("/api/waitlist/:newReservation", function (req, res) {
     return res.json(false);
 });
 
+app.post("/api/waitlist", function (req, res) {
+    // req.body hosts is equal to the JSON post sent from the user
+    // This works because of our body-parser middleware
+    var newWaitlist = req.body;
+
+    console.log(newWaitlist);
+
+    waitlist.push(newWaitlist);
+
+    res.json(newWaitlist);
+});
+
+app.post("/api/tables", function (req, res) {
+    // req.body hosts is equal to the JSON post sent from the user
+    // This works because of our body-parser middleware
+    var newReservation = req.body;
+
+    console.log(newReservation);
+
+    waitlist.push(newReservation);
+
+    res.json(newReservation);
+});
 
 // Starts the server to begin listening
 // =============================================================
