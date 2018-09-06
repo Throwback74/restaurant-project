@@ -81,6 +81,14 @@ app.get("/api/waitlist/:newReservation", function (req, res) {
         }   
     });
 
+    app.post("/api/clear", function() {
+        // Empty out the arrays of data
+        reservations = [];
+        waitlist = [];
+    
+        console.log(tableData);
+    });
+    
 // Starts the server to begin listening
 // =============================================================
 app.listen(PORT, function () {
